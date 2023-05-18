@@ -1,0 +1,34 @@
+// PC small -> ls
+@media (min-width: 1023px) and (max-width: 1289px) {
+  .infoContainer {
+    flex: 1;
+  }
+}
+// Tablet -> m
+@media (min-width: 740px) and (max-width: 1023px) {
+  .infoContainer {
+    flex: 1;
+  }
+  .data__show {
+    font-size: 1.4em;
+  }
+}
+//mobile -> c
+
+@media (max-width: 740px) {
+  .app__right {
+    .app__right--header {
+      padding: 4px;
+    }
+  }
+  .leaflet-control-playback.leaflet-control {
+    width: 110%;
+    height: 12vh;
+  }
+  .leaflet-control-playback.leaflet-control .buttonContainer{
+    flex-basis: 34%;
+  }
+  .leaflet-control-playback.leaflet-control .infoContainer {
+    flex-basis: 66%;
+  }
+}

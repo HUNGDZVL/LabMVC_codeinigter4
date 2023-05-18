@@ -1,0 +1,13 @@
+@import "style";
+
+@import "grid";
+
+//responsive
+@media (max-width: 740px) {
+    .app__form {
+        max-width: 360px;
+    }
+    .form__footerimg {
+        padding: 5px 0px;
+    }
+}

@@ -1,0 +1,239 @@
+//reset css
+* {
+  box-sizing: inherit; /* ke thua tu the html co thuoc tinh boderbox*/
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%; /*1px = 1rem trick mod %*/
+  line-height: 1.6rem; /*= 16px */
+  font-family: "Roboto", sans-serif; /* chon font , nhung font roboto */
+  box-sizing: border-box; /* set up chinh kich thuoc element trong box */
+}
+
+li {
+  list-style-type: none;
+  cursor: pointer;
+}
+
+a {
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+input {
+  outline: none;
+  border: none;
+  width: 100%;
+  font-size: 1.2em;
+}
+// css main
+$colorBackground: rgba(48, 65, 216, 0.9);
+$colortext: #fff;
+$colorbackgroundItem: antiquewhite;
+$colorInfo: rgb(101, 176, 241, 0.9);
+
+@mixin setupIcon {
+  position: absolute;
+  top: 50%;
+  font-size: 3.4rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: rgba(48, 65, 216, 0.85);
+  width: 30px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 2;
+}
+//
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+#map {
+  position: relative;
+  z-index: 1;
+  height: 86vh;
+}
+.app {
+  background: $colorBackground;
+  overflow: hidden;
+}
+
+.app__left {
+  position: relative;
+  transition: width 2s ease;
+  & h2 {
+    padding: 24px;
+    font-size: 1.6rem;
+    color: $colortext;
+    text-align: center;
+  }
+  & .app__left--content {
+    background: $colortext;
+    width: 100%;
+    padding: 4px;
+    border-radius: 4px;
+    height: 86vh;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .app__left--footer {
+    display: flex;
+    width: 60%;
+    background: $colortext;
+    margin: 4px auto;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    & p {
+      font-size: 1.6rem;
+      margin: 3px 34px;
+    }
+    & i {
+      font-size: 1.6rem;
+      margin: 3px 0;
+      cursor: pointer;
+      padding: 0 6px;
+    }
+  }
+}
+.l-10,
+.l-12 {
+  transition: width 2s ease-in;
+}
+.app__right {
+  position: relative;
+  & .app__right--header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 12px;
+    & i {
+      color: $colortext;
+      font-size: 2.4rem;
+    }
+    & h2 {
+      padding: 12px;
+      color: $colortext;
+    }
+  }
+  & .app__right--content {
+    width: 150%;
+    background: $colortext;
+    border-radius: 4px;
+    height: 86vh;
+    position: relative;
+  }
+}
+.app__right--icon {
+  @include setupIcon();
+  margin-left: -2px;
+}
+
+.disable {
+  display: none !important;
+}
+.data__show {
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: 500;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 0px;
+  border-radius: 4px;
+  margin: 4px 0;
+  cursor: pointer;
+}
+
+.active--color {
+  background: $colorbackgroundItem;
+}
+
+.bulkhead {
+  margin: 0 2px;
+}
+.data__info {
+  position: fixed;
+  top: 50%;
+  font-size: 1.6rem;
+  font-weight: 500;
+  background: $colorInfo;
+  padding: 15px;
+  line-height: 2.6rem;
+  border-radius: 4px;
+  & i {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 2px;
+    padding: 4px;
+    background-color: red;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
+.active__rightl {
+  width: 121% !important;
+}
+.leaflet-top.leaflet-right {
+  bottom: 10px;
+  top: unset;
+  right: 30px;
+  left: 30px;
+  border-radius: 15px;
+  padding: 0;
+  box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px, rgb(0 0 0 / 12%) 0px -12px 30px,
+    rgb(0 0 0 / 12%) 0px 4px 6px, rgb(0 0 0 / 17%) 0px 12px 13px,
+    rgb(0 0 0 / 9%) 0px -3px 5px;
+  font-weight: 600;
+  max-width: 65%;
+}
+.leaflet-control-playback.leaflet-control {
+  width: 100%;
+  height: 12vh;
+  margin: 0;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: space-around;
+  padding: 5px 20px;
+  font-size: 12px;
+  & .buttonContainer,
+  .infoContainer {
+    flex-basis: 45%;
+  }
+  & .sliderContainer {
+    flex-basis: 100%;
+  }
+}
+.optionsContainer {
+  display: none;
+}
+.infoContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.show__control {
+  @include setupIcon();
+  background-color: transparent;
+  top: 80%;
+  left: 50px;
+  display: none;
+  & i {
+    color: $colorBackground;
+    font-size: 1.6rem;
+  }
+}
+.checkin--color {
+  background: rgb(208, 128, 23);
+}
